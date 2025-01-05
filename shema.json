@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "criterion": {
+            "type": "string",
+            "description": "Название параметра оценки"
+          },
+          "stage": {
+            "type": "string",
+            "description": "Этап"
+          },
+          "score": {
+            "type": "integer",
+            "description": "Оценка",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "description": {
+            "type": "string",
+            "description": "Подробное обоснование и описание оценки и почему она именно такая, что именно повлияло без сокращения"
+          },
+          "recommendations": {
+            "type": "array",
+            "description": "Если оценка ниже 3 балов, то напиши подробно все обоснованные рекомендации для улучшения навыков менеджера. Проверь, что перечислены все рекомендации.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "example": {
+            "type": "array",
+            "description": "Если оценка ниже 3 балов, то следуя рекомендации дай пример фразы как именно должен был ответить менеджер. Приведи сразу пример фразы без пояснений.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "dialogue": {
+            "type": "array",
+            "description": "Приведи пример из диалога без сокращений, полностью цитируй. Указывать роль кто говорит данную фразу",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "criterion",
+          "stage",
+          "score",
+          "description",
+          "recommendations",
+          "example",
+          "dialogue"
+        ]
+      }
+    },
+    "overall_assessment": {
+      "type": "string",
+      "description": "Общие выводы по работе менеджера"
+    },
+    "recommendations": {
+      "type": "array",
+      "description": "Четкие выводы и развернутые обоснованные рекомендации для улучшения навыков менеджера которые должны соответствовать поставленным целем. Проверь, что перечислены все рекомендации. Учитывай ранее выданные рекомендации",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "criteria",
+    "overall_assessment",
+    "recommendations"
+  ]
+}
