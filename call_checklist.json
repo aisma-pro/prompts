@@ -39,11 +39,25 @@
               "type": "string"
             }
           },
-          "dialogue": {
+          "text": {
             "type": "array",
-            "description": "Приведи пример из диалога без сокращений, полностью цитируй. Указывать роль кто говорит данную фразу",
+            "description": "Приведи примеры из диалога без сокращений, полностью цитируй. Указывать роль кто говорит данную фразу",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "role": {
+                  "type": "string",
+                  "description": "Роль: менеджер или клиент"
+                },
+                "quote": {
+                  "type": "string",
+                  "description": "Текст цитаты"
+                }
+              },
+              "required": [
+                "role",
+                "quote"
+              ]
             }
           }
         },
@@ -54,7 +68,7 @@
           "description",
           "recommendations",
           "example",
-          "dialogue"
+          "text"
         ]
       }
     },
