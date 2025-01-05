@@ -1,0 +1,16 @@
+{
+  "agreements": [
+    {
+      "description": "Менеджер подготовит расчёты по ипотеке, включая варианты с минимальным взносом и льготной ставкой.",
+      "responsible": "manager",
+      "deadline": "2023-10-02T18:00:00",
+      "status": "pending"
+    },
+    {
+      "description": "Менеджер отправит расчёты клиенту удобным способом.",
+      "responsible": "manager",
+      "deadline": "2023-10-02T18:00:00",
+      "status": "pending"
+    }
+  ]
+}

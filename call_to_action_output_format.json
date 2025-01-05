@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "agreements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Описание достигнутой договоренности."
+          },
+          "responsible": {
+            "type": "string",
+            "enum": [
+              "manager",
+              "client"
+            ],
+            "description": "Кто несет ответственность за выполнение договоренности."
+          },
+          "deadline": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Срок выполнения договоренности, если применимо."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "in_progress",
+              "completed"
+            ],
+            "default": "pending",
+            "description": "Текущий статус задачи."
+          }
+        },
+        "required": [
+          "description",
+          "responsible",
+          "deadline",
+          "status"
+        ]
+      }
+    }
+  },
+  "required": [
+    "agreements"
+  ]
+}
