@@ -7,7 +7,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "criterion": {
+          "parameter_name": {
             "type": "string",
             "description": "Название параметра оценки"
           },
@@ -21,7 +21,7 @@
             "minimum": 1,
             "maximum": 3
           },
-          "description": {
+          "justification": {
             "type": "string",
             "description": "Подробное обоснование и описание оценки и почему она именно такая, что именно повлияло без сокращения"
           },
