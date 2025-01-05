@@ -18,11 +18,11 @@
             "type": "string",
             "description": "Действия менеджера для работы с возражением."
           },
-          "evaluation": {
+          "score": {
             "type": "integer",
             "minimum": 1,
-            "maximum": 2,
-            "description": "Оценка действий менеджера (1 - минимальная, 5 - максимальная)."
+            "maximum": 3,
+            "description": "Оценка действий менеджера (1 - не выполнено, 2 - частично выполнено, 3 - полностью выполнено)."
           },
           "objection_resolved": {
             "type": "boolean",
