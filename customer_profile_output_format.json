@@ -1,0 +1,312 @@
+{
+  "type": "object",
+  "properties": {
+    "call_result": {
+      "type": "object",
+      "description": "Результат звонка",
+      "properties": {
+        "call_goal": {
+          "type": "string",
+          "description": "Четко укажи цель звонка клиента, опиши причину звонка клиентом, какую информацию он хотел получить"
+        },
+        "call_outcome": {
+          "type": "string",
+          "description": "Какие договоренности были достигнуты или почему цель не была достигнута"
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "main_topics": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "key_details": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "mentioned_actions_dates_conditions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "main_topics",
+            "key_details",
+            "mentioned_actions_dates_conditions"
+          ]
+        }
+      },
+      "required": [
+        "call_goal",
+        "call_outcome",
+        "summary"
+      ]
+    },
+    "client_needs": {
+      "type": "object",
+      "description": "Потребности клиента",
+      "properties": {
+        "explicit": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Явные потребности клиента: Что клиент прямо говорит, что ему нужно."
+          }
+        },
+        "hidden": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Скрытые потребности клиента: Какие нужды можно определить по контексту, интонациям или повторяющимся темам. Что клиент не озвучил напрямую, но что можно определить по контексту, формулировкам или эмоциональной реакции."
+          }
+        }
+      },
+      "required": [
+        "explicit",
+        "hidden"
+      ]
+    },
+    "client_goals": {
+      "type": "object",
+      "description": "Цели клиента: Что клиент хочет достичь (краткосрочные и долгосрочные задачи)",
+      "properties": {
+        "short_term": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Краткосрочные цели клиента"
+          }
+        },
+        "long_term": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Долгосрочные цели клиента"
+          }
+        }
+      },
+      "required": [
+        "short_term",
+        "long_term"
+      ]
+    },
+    "client_temperature": {
+      "type": "object",
+      "description": "Температура клиента",
+      "properties": {
+        "temperature": {
+          "type": "string",
+          "description": "Температура клиента: горячий / теплый / холодный",
+          "enum": [
+            "cold",
+            "warm",
+            "hot"
+          ]
+        },
+        "emotional_engagement": {
+          "type": "string",
+          "description": "Эмоциональная вовлеченность"
+        },
+        "reaction_to_offer": {
+          "type": "string",
+          "description": "Реакция на предложение"
+        },
+        "initiative": {
+          "type": "string",
+          "description": "Инициатива"
+        },
+        "action_readiness": {
+          "type": "string",
+          "description": "Готовность к действиям"
+        },
+        "intonation_and_tone": {
+          "type": "string",
+          "description": "Интонация и тональность"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Вывод: Клиент классифицирован как (горячий/теплый/холодный) на основании следующих факторов ..."
+        }
+      },
+      "required": [
+        "temperature",
+        "emotional_engagement",
+        "reaction_to_offer",
+        "initiative",
+        "action_readiness",
+        "intonation_and_tone",
+        "summary"
+      ]
+    },
+    "client_insights": {
+      "type": "object",
+      "description": "Инсайты клиента",
+      "properties": {
+        "main_motives": {
+          "type": "array",
+          "description": "Основные мотивы: Что движет клиентом (экономия, удобство, качество, статус).",
+          "items": {
+            "type": "string"
+          }
+        },
+        "expectations": {
+          "type": "array",
+          "description": "Ожидания: Какого результата клиент ждет от продукта/услуги.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "behavioral_patterns": {
+          "type": "array",
+          "description": "Поведенческие паттерны: Принимает ли клиент решения обдуманно или импульсивно.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "decision_making_role": {
+          "type": "string",
+          "description": "Роль в принятии решений: Финальное лицо или посредник?"
+        },
+        "additional_insights": {
+          "type": "array",
+          "description": "Дополнительные инсайты: Упоминания о прошлых опытах, склонность к рискам или консервативность.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "main_motives",
+        "expectations",
+        "behavioral_patterns",
+        "decision_making_role",
+        "additional_insights"
+      ]
+    },
+    "purchase_triggers": {
+      "type": "object",
+      "description": "Триггеры к покупке",
+      "properties": {
+        "problems_pains": {
+          "type": "array",
+          "description": "Проблемы и боли: Какие проблемы требуют немедленного решения? Приоритетные проблемы клиента.",
+          "items": {
+            "type": "string"
+          },
+          "values": {
+            "type": "array",
+            "description": "Ценности: Какие аспекты для клиента важнее всего (цена, качество, гарантия результата).",
+            "items": {
+              "type": "string"
+            }
+          },
+          "emotional_triggers": {
+            "type": "array",
+            "description": "Эмоциональные триггеры: Что вызвало сильные эмоции клиента.",
+            "items": {
+              "type": "string"
+            },
+            "time_triggers": {
+              "type": "array",
+              "description": "Временные триггеры: Что может ускорить принятие решения (сроки, акции).",
+              "items": {
+                "type": "string"
+              }
+            },
+            "logical_triggers": {
+              "type": "array",
+              "description": "Логические триггеры: Какие аргументы можно использовать для убеждения.",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "problems_pains",
+            "values",
+            "emotional_triggers",
+            "time_triggers",
+            "logical_triggers"
+          ]
+        },
+        "recommendations": {
+          "type": "object",
+          "description": "Рекомендации",
+          "properties": {
+            "phrases_to_enhance_triggers": {
+              "type": "array",
+              "description": "Фразы для усиления триггеров",
+              "items": {
+                "type": "string",
+                "description": "Фразы"
+              }
+            },
+            "strategy": {
+              "type": "array",
+              "description": "Стратегия",
+              "items": {
+                "type": "string",
+                "description": "Стратегия"
+              }
+            },
+            "emphasize_benefits": {
+              "type": "array",
+              "description": "Подчеркнуть выгоды",
+              "items": {
+                "type": "string",
+                "description": "Выгода"
+              }
+            },
+            "focus_on": {
+              "type": "array",
+              "description": "Акцентировать внимание на",
+              "items": {
+                "type": "string",
+                "description": "Перечислить список на чем акцентировать внимание клиента"
+              }
+            },
+            "overcome_objections_with": {
+              "type": "array",
+              "description": "Обойти возражения с помощью",
+              "items": {
+                "type": "string",
+                "description": "Обойти возражения с помощью"
+              }
+            },
+            "persuasion_arguments": {
+              "type": "array",
+              "description": "Убедить клиента с помощью следующих аргументов",
+              "items": {
+                "type": "string",
+                "description": "Аргумент"
+              }
+            }
+          },
+          "required": [
+            "phrases_to_enhance_triggers",
+            "strategy",
+            "emphasize_benefits",
+            "focus_on",
+            "overcome_objections_with",
+            "persuasion_arguments"
+          ]
+        }
+      }
+    }
+  },
+  "required": [
+    "call_result",
+    "client_needs",
+    "client_goals",
+    "client_temperature",
+    "client_insights",
+    "purchase_triggers",
+    "recommendations"
+  ]
+}
