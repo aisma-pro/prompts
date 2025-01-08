@@ -12,34 +12,6 @@
         "call_summary": {
           "type": "string",
           "description": "Какие договоренности были достигнуты или почему цель не была достигнута. Краткое описание итогов диалога, включая основные выводы и реакцию клиента"
-        },
-        "summary": {
-          "type": "object",
-          "properties": {
-            "main_topics": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "key_details": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "mentioned_actions_dates_conditions": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          "required": [
-            "main_topics",
-            "key_details",
-            "mentioned_actions_dates_conditions"
-          ]
         }
       },
       "required": [
