@@ -212,3 +212,75 @@ alter table call_client_objections
 create unique index client_objections_objection_id_uindex
     on call_client_objections (objection_id);
 ```
+
+---
+
+# create table: checklist
+
+```sql
+-- auto-generated definition
+create table checklist
+(
+    checklist_id serial
+        constraint checklist_pk
+            primary key,
+    stage_id     integer
+        constraint checklist_checklist_stages_stage_id_fk
+            references checklist_stages,
+    name         varchar,
+    description  varchar,
+    execution    jsonb,
+    is_enable    boolean,
+    instructions text,
+    pipelinel_id integer
+        constraint checklist_checklist_pipelines_pipeline_id_fk
+            references checklist_pipelines
+);
+
+alter table checklist
+    owner to "user";
+
+create unique index checklist_checklist_id_uindex
+    on checklist (checklist_id);
+
+
+```
+
+# create table: checklist_pipelines
+
+```sql
+-- auto-generated definition
+create table checklist_pipelines
+(
+    pipeline_id serial
+        constraint checklist_pipelines_pk
+            primary key,
+    name        varchar
+);
+
+alter table checklist_pipelines
+    owner to "user";
+
+create unique index checklist_pipelines_pipeline_id_uindex
+    on checklist_pipelines (pipeline_id);
+```
+
+# create table: checklist_stages
+
+```sql
+-- auto-generated definition
+create table checklist_stages
+(
+    stage_id serial
+        constraint checklist_stages_pk
+            primary key,
+    name     varchar
+);
+
+alter table checklist_stages
+    owner to "user";
+
+create unique index checklist_stages_stage_id_uindex
+    on checklist_stages (stage_id);
+
+```
