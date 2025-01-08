@@ -1,7 +1,7 @@
 {
   "type": "object",
   "properties": {
-    "agreements": {
+    "call_agreements": {
       "type": "array",
       "items": {
         "type": "object",
